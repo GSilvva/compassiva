@@ -922,13 +922,16 @@ small {
 
         a {
 
-            &::after {
-                content: "/";
-                color: rgba(255, 255, 255, 0.7);
-            }
-
             &:hover {
                 text-decoration: underline;
+            }
+        }
+
+        span {
+
+            &::before {
+                content: "/";
+                color: rgba(255, 255, 255, 0.7);
             }
         }
 
