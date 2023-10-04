@@ -1,0 +1,42 @@
+.error {
+    padding: 300px 0 250px 0;
+
+    @media (max-width: $mobile) {
+        padding: 100px 0 120px 0;
+    }
+
+    * {
+        text-align: center;
+        color: $white;
+    }
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    h1 {
+        font: 700 38px/1 $font;
+
+        @media (max-width: $mobile) {
+            font-size: 28px;
+        }
+    }
+
+    p {
+        font-weight: 500;
+        margin: 20px 0 30px 0;
+    }
+    
+    .button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+
+        i {
+            margin-top: 3px;
+        }
+    }
+}

@@ -1,0 +1,72 @@
+.contato {
+
+    &__form {
+        padding: 0 0 120px 0;
+
+        @media (max-width: $mobile) {
+            padding: 0 0 88px 0;
+        }
+
+        .container {
+            display: flex;
+            gap: 32px;
+
+            @media (max-width: $mobile) {
+                flex-direction: column;
+                gap: 56px;
+            }
+
+            article {
+                max-width: 440px;
+                width: 100%;
+
+                h2 {
+                    margin: 0 0 32px 0;
+                }
+
+                p {
+                    line-height: 30px;
+                }
+            
+                div {
+                    margin: 40px 0 0 0;
+                    display: flex;
+                    gap: 10px;
+
+    
+                    a {
+                        width: 40px;
+                        height: 40px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        background: #EFF1F6;
+                        transition: .3s;
+                        border-radius: 4px;
+    
+                        &:hover {
+                            background: #62CEC5;
+    
+                            i {
+                                color: $white;
+                            }
+                        }
+    
+                        i {
+                            color: #717580;
+                            transition: .3s;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    iframe {
+        margin: 0 0 -6px 0;
+
+        @media (max-width: $mobile) {
+            height: 360px;
+        }
+    }
+}
