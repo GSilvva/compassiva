@@ -253,7 +253,6 @@ small {
     }
 
     &__menu {
-        padding: 12px 0;
         background: $white;
         box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.05);
         transition: .3s;
@@ -326,7 +325,7 @@ small {
                 }
             }
 
-            ul {
+            & > ul {
                 flex: 2;
                 display: flex;
                 align-items: center;
@@ -336,49 +335,244 @@ small {
                 @media (max-width: $mobile) {
                     display: block;
                     overflow-y: auto;
+                    max-height: 86%;
                     width: 100%;
                 }
 
-                li {
+                & > li {
+                    position: relative;
 
-                    a {
-                        font: 600 16px/1 $font;
-                        color: #717580;
-                        transition: .3s;
+                    &:hover {
+
+                        & > span {
+                            
+                            & > a {
+                                color: #788FEB;
+    
+                                &::before {
+                                    opacity: 1;
+                                    visibility: visible;
+                                }
+
+                                i {
+                                    transform: scaleY(-1);
+                                    color: #788FEB;
+                                }
+                            }
+                        }
+
+                        & > article {
+                            opacity: 1;
+                            visibility: visible;
+                        }
+                    }
+
+                    & > span {
                         display: block;
-                        position: relative;
+                        
+                        @media (max-width: $mobile) {
+                            padding: 12px 0;
+                            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+                            display: flex;
+                            align-items: center;
+                            justify-content: space-between;
+                        }
+                        
+                        & > a {
+                            height: 96px;
+                            font: 600 16px/1 $font;
+                            color: #717580;
+                            transition: .3s;
+                            display: flex;
+                            align-items: center;
+                            gap: 8px;
+                            position: relative;
+    
+                            @media (max-width: $mobile) {
+                                color: #11161F;
+                                line-height: 30px;
+                                width: 80%;
+                                height: auto;
+
+                                i {
+                                    display: none;
+                                }
+                            }
+    
+                            i {
+                                color: #717580;
+                                font-size: 12px;
+                                transition: .3s;
+
+                                @media (max-width: $mobile) {
+                                    color: #11161F;
+                                }
+                            }
+    
+                            &::before {
+                                content: "";
+                                width: calc(100% + 40px);
+                                height: 3px;
+                                position: absolute;
+                                top: 0;
+                                left: 50%;
+                                transform: translateX(-50%);
+                                background: #788FEB;
+                                transition: .3s;
+                                opacity: 0;
+                                visibility: hidden;
+    
+                                @media (max-width: $mobile) {
+                                    display: none;
+                                }
+                            }
+                        }
+
+                        & > i {
+                            color: #959CA7;
+                            font-size: 14px;
+
+                            @media (min-width: $mobile) {
+                                display: none;
+                            }
+
+                            &:last-of-type {
+                                display: none;
+                            }
+                        }
+
+                        &.open {
+
+                            & > i {
+
+                                &:first-of-type {
+                                    display: none;
+                                }
+
+                                &:last-of-type {
+                                    display: block;
+                                }
+                            }
+                        }
+                    }
+
+                    & > article {
+                        position: absolute;
+                        bottom: 0;
+                        left: 50%;
+                        transform: translate(-50%, 100%);
+                        min-width: 250px;
+                        background: $white;
+                        transition: .3s;
+                        box-shadow: 0 0 20px 0 rgba(62, 28, 131, 0.1);
+                        border-radius: 6px;
+                        padding: 20px 20px 14px 20px;
+                        opacity: 0;
+                        visibility: hidden;
+                        display: flex;
+                        gap: 24px;
+
+                        &.open {
+                            display: block;
+                        }
 
                         @media (max-width: $mobile) {
-                            color: #11161F;
-                            padding: 12px 0;
-                            line-height: 30px;
-                            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+                            flex-direction: column;
+                            opacity: 1;
+                            visibility: visible;
+                            display: none;
+                            padding: 0;
+                            box-shadow: unset;
+                            position: relative;
+                            transform: unset;
+                            left: unset;
+                            min-width: initial;
+                            padding: 0 0 0 16px;
+                            margin: -1px 0 0 0;
                         }
 
                         &::before {
                             content: "";
-                            width: calc(100% + 40px);
-                            height: 3px;
+                            border: 10px solid transparent;
+                            border-bottom-color: $white;
                             position: absolute;
-                            top: -40px;
+                            top: 0;
                             left: 50%;
-                            transform: translateX(-50%);
-                            background: #788FEB;
-                            transition: .3s;
-                            opacity: 0;
-                            visibility: hidden;
+                            transform: translate(-50%, -100%);
 
                             @media (max-width: $mobile) {
                                 display: none;
                             }
                         }
 
-                        &:hover {
-                            color: #788FEB;
+                        & > div {
+                            width: 100%;
+                            min-width: 200px;
 
-                            &::before {
-                                opacity: 1;
-                                visibility: visible;
+                            @media (max-width: $mobile) {
+                                min-width: initial;
+                            }
+
+                            & > a {
+                                border-bottom: 1px solid #E9E9EE;
+                                padding: 0 0 10px 0;
+                                margin: 0 0 8px 0;
+                                color: #11161F;
+                                display: block;
+                                font: 500 15px/21px $font;
+                                white-space: nowrap;
+
+                                @media (max-width: $mobile) {
+                                    font-weight: 600;
+                                    padding: 10px 0;
+                                }
+
+                                & ~ ul {
+
+                                    @media (max-width: $mobile) {
+                                        padding: 0 0 0 16px;
+                                    }
+
+                                    li {
+
+                                        a {
+                                            padding: 8px 32px 8px 0;
+                                            border: unset !important;
+                                        }
+                                    }
+                                }
+                            }
+
+                            & > ul {
+
+                                & > li {
+
+                                    &:not(:last-of-type) {
+
+                                        a {
+                                            border-bottom: 1px solid #E9E9EE;
+                                       
+                                            @media (max-width: $mobile) {
+                                                border: unset;
+                                            }
+                                        }
+                                    }
+
+                                    & > a {
+                                        width: 100%;
+                                        color: #717580;
+                                        font: 400 15px/1.4 $font;
+                                        padding: 12px 32px 12px 0;
+                                        text-transform: capitalize;
+                                        display: block;
+                                        transition: .3s;
+                                        white-space: nowrap;
+
+                                        &:hover {
+                                            color: $light-blue;
+                                        }
+                                    }
+                                }
                             }
                         }
                     }
@@ -417,7 +611,7 @@ small {
             gap: 20px;
 
             @media (min-width: $mobile) {
-                display: none;
+                padding: 0 0 0 32px;
             }
 
             i {
@@ -478,6 +672,13 @@ small {
                             color: #717580;
                         }
                     }
+                }
+            }
+
+            &__button {
+
+                @media (min-width: $mobile) {
+                    display: none;
                 }
             }
         }
@@ -564,6 +765,16 @@ small {
                 background: transparent;
                 box-shadow: unset;
                 border-bottom: 1px solid rgba(255, 255, 255, .1);
+
+                &__actions {
+
+                    &__search {
+
+                        i {
+                            color: $white;
+                        }
+                    }
+                }
     
                 &__logo {
     
@@ -581,19 +792,26 @@ small {
 
                 &__items {
 
-                    ul {
+                    & > ul {
 
-                        li {
+                        & > li {
 
-                            a {
-                                color: rgb(222, 222, 222);
+                            & > span {
+                                
+                                & > a{
+                                    color: rgb(222, 222, 222);
 
-                                &:hover {
-                                    color: $white;
-                                }
+                                    &:hover {
+                                        color: $white;
+                                    }
 
-                                &::before {
-                                    background: $white;
+                                    &::before {
+                                        background: $white;
+                                    }
+
+                                    i {
+                                        color: rgb(222, 222, 222);
+                                    }
                                 }
                             }
                         }
